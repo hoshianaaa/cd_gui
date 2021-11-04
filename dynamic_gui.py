@@ -28,5 +28,3 @@ while True:             # Event Loop
         window = window1
 
 window.Close()
-
-

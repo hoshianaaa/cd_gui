@@ -37,7 +37,7 @@ def read_dirs():
 
   f_name = "config.json"
   data = read_json_file(f_name)
-  dirs = data["directories"]
+  dirs = data
 
 def write_dirs():
 
@@ -65,9 +65,11 @@ def add_dirs(directory):
 
 sg.theme('DarkAmber')
 
-layout = [  [sg.Text('ここは1行目')],
-            [sg.Text('ここは2行目：適当に文字を入力してください'), sg.InputText()],
-            [sg.Button('open'), sg.Button('add'), sg.Button('Kill all')] ]
+layout =  [  
+            [sg.Text('Input directory: '), sg.InputText(), sg.Button('add')],
+            [sg.Button('open')],
+            [sg.Button('Kill all')] 
+          ]
 
 window = sg.Window('サンプルプログラム', layout)
 
