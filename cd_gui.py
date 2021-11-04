@@ -65,10 +65,15 @@ def add_dirs(directory):
 
 def buttons():
   list = []
-  list.append([sg.Button('Button')])
-  list.append([sg.Button('Button')])
-  list.append([sg.Button('Button')])
+  for i in dirs:
+    list.append([sg.Button('Button')])
+
   return list
+
+read_dirs()
+check_dirs()
+
+direcotry1 = dirs[0]
 
 sg.theme('DarkAmber')
 
@@ -79,11 +84,6 @@ layout =  [
           ]
 
 window = sg.Window('サンプルプログラム', layout)
-
-read_dirs()
-check_dirs()
-
-direcotry1 = dirs[0]
 
 try:
 
