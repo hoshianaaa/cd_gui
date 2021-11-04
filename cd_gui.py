@@ -63,6 +63,10 @@ def add_dirs(directory):
     printRed("[Failed] No such a directory: " + d)
     return False
 
+def clear_dirs():
+  global dirs
+  dirs = []
+
 def buttons():
   list = []
 
@@ -71,6 +75,17 @@ def buttons():
 
   return list
 
+def layout():
+
+  layout =  [  
+              [sg.Text('Input directory: '), sg.InputText(), sg.Button('add'), sg.Button('clear')],
+              buttons(),
+              [sg.Button('Kill all')] 
+            ]
+
+  return layout
+
+
 read_dirs()
 check_dirs()
 
@@ -78,14 +93,9 @@ direcotry1 = dirs[0]
 
 sg.theme('DarkAmber')
 
-layout =  [  
-            [sg.Text('Input directory: '), sg.InputText(), sg.Button('add')],
-            buttons(),
-            [sg.Button('Kill all')] 
-          ]
 
 location = (0,0)
-window = sg.Window('cd gui', layout)
+window = sg.Window('cd gui', layout=layout())
 
 try:
 
@@ -102,22 +112,26 @@ try:
       elif event in dirs:
           os.system('gnome-terminal -- bash -c "cd %s; bash"' % event)
 
+
       elif event == 'add':
           d = values[0]
           add_dirs(d)
 
-          layout =  [  
-              [sg.Text('Input directory: '), sg.InputText(), sg.Button('add')],
-              buttons(),
-              [sg.Button('Kill all')] 
-            ]
-
-          window1 = sg.Window('Window Title', location=location).Layout(layout)
+          window1 = sg.Window('Window Title', location=location).Layout(layout())
           window.Close()
           window = window1
 
+      elif event == 'clear':
+          clear_dirs()
+
+          window1 = sg.Window('Window Title', location=location).Layout(layout())
+          window.Close()
+          window = window1
+
+
       elif event == sg.WIN_CLOSED:
           break
+
 
   window.close()
 
