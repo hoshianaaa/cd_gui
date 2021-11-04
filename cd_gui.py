@@ -4,6 +4,24 @@ from json_read_write import *
 
 dirs = []
 
+class pycolor:
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    PURPLE = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    END = '\033[0m'
+    BOLD = '\038[1m'
+    UNDERLINE = '\033[4m'
+    INVISIBLE = '\033[08m'
+    REVERCE = '\033[07m'
+
+def printRed(text):
+  print(pycolor.RED + text + pycolor.END)
+
 def check_dirs():
 
   global dirs
@@ -32,10 +50,10 @@ def add_dirs(directory):
       print("[Sucess] add exist directory:",d)
       return True
     else:
-      print("[Fail] Already exist directory:",d)
+      printRed("[Failed] Already exist directory: " + d)
       return False
   else:
-    print("[Fail] No such a directory:",d)
+    printRed("[Failed] No such a directory: " + d)
     return False
 
 sg.theme('DarkAmber')
