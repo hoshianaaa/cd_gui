@@ -24,7 +24,8 @@ while True:
 
     print('あなたが入力した値： ', )
     event, values = window.read()
-    if event == 'kill all':
+    if event == 'Kill all':
+        print("kill all")
         os.system('killall gnome-terminal-server')
         #break
 
