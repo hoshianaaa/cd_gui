@@ -63,11 +63,18 @@ def add_dirs(directory):
     printRed("[Failed] No such a directory: " + d)
     return False
 
+def buttons():
+  list = []
+  list.append([sg.Button('Button')])
+  list.append([sg.Button('Button')])
+  list.append([sg.Button('Button')])
+  return list
+
 sg.theme('DarkAmber')
 
 layout =  [  
             [sg.Text('Input directory: '), sg.InputText(), sg.Button('add')],
-            [sg.Button('open')],
+            buttons(),
             [sg.Button('Kill all')] 
           ]
 
