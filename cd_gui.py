@@ -17,6 +17,8 @@ data = read_json_file(f_name)
 
 print(data["directories"])
 
+direcotry1 = data["directories"][0]
+
 # イベントループ
 while True:
 
@@ -27,7 +29,8 @@ while True:
         #break
 
     elif event == 'OK':
-        d = values[0]
+        #d = values[0]
+        d = direcotry1
         print("directory",d)
         os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
 
