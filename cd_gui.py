@@ -128,10 +128,8 @@ try:
           window.Close()
           window = window1
 
-
       elif event == sg.WIN_CLOSED:
           break
-
 
   window.close()
 
