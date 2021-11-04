@@ -12,10 +12,10 @@ layout = [  [sg.Text('ここは1行目')],
 # ウィンドウの生成
 window = sg.Window('サンプルプログラム', layout)
 
-f_name = "matrix.json"
+f_name = "config.json"
 data = read_json_file(f_name)
 
-print(data["matrix"])
+print(data["directories"])
 
 # イベントループ
 while True:
