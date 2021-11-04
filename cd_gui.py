@@ -17,13 +17,22 @@ window = sg.Window('サンプルプログラム', layout)
 f_name = "config.json"
 data = read_json_file(f_name)
 
-print(data["directories"])
-
 config_dirs = data["directories"]
 
-direcotry1 = config_dirs[0]
+print("config directories", config_dirs)
 
-print("EXIST:",os.path.exists(direcotry1))
+remove_idxs = []
+
+for i in config_dirs[:]:
+  exist = os.path.exists(i)
+  print("EXIST:",os.path.exists(i))
+
+  if not exist:
+    config_dirs.remove(i)
+
+print("checked config directories", config_dirs)
+
+direcotry1 = config_dirs[0]
 
 # イベントループ
 while True:
