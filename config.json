@@ -1,3 +1,5 @@
-{
-  "directories":["/home", "/home/aaa", "/home/hoshina"]
-}
+[
+  "/home",
+  "/home/hoshina",
+  "/"
+]

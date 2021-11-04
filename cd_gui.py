@@ -39,6 +39,13 @@ def read_dirs():
   data = read_json_file(f_name)
   dirs = data["directories"]
 
+def write_dirs():
+
+  global dirs
+
+  f_name = "config.json"
+  write_json_file(f_name, dirs)
+
 def add_dirs(directory):
 
   global dirs
@@ -69,22 +76,29 @@ check_dirs()
 
 direcotry1 = dirs[0]
 
-while True:
+try:
 
-    event, values = window.read()
-    if event == 'Kill all':
-        os.system('killall gnome-terminal-server')
+  while True:
 
-    elif event == 'open':
-        d = direcotry1
-        os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
+      event, values = window.read()
+      if event == 'Kill all':
+          os.system('killall gnome-terminal-server')
 
-    elif event == 'add':
-        d = values[0]
-        add_dirs(d)
+      elif event == 'open':
+          d = direcotry1
+          os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
 
-    elif event == sg.WIN_CLOSED:
-        break
+      elif event == 'add':
+          d = values[0]
+          add_dirs(d)
 
-window.close()
+      elif event == sg.WIN_CLOSED:
+          break
 
+  window.close()
+
+finally:
+  
+  write_dirs()
+  
+  
