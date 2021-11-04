@@ -84,7 +84,8 @@ layout =  [
             [sg.Button('Kill all')] 
           ]
 
-window = sg.Window('サンプルプログラム', layout)
+location = (0,0)
+window = sg.Window('cd gui', layout)
 
 try:
 
@@ -98,9 +99,22 @@ try:
           d = direcotry1
           os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
 
+      elif event in dirs:
+          os.system('gnome-terminal -- bash -c "cd %s; bash"' % event)
+
       elif event == 'add':
           d = values[0]
           add_dirs(d)
+
+          layout =  [  
+              [sg.Text('Input directory: '), sg.InputText(), sg.Button('add')],
+              buttons(),
+              [sg.Button('Kill all')] 
+            ]
+
+          window1 = sg.Window('Window Title', location=location).Layout(layout)
+          window.Close()
+          window = window1
 
       elif event == sg.WIN_CLOSED:
           break

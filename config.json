@@ -3,5 +3,6 @@
   "/home/hoshina",
   "/",
   "/home/hoshina/catkin_ws",
-  "/home/hoshina/catkin_ws/src/2d_vision_controller"
+  "/home/hoshina/catkin_ws/src/2d_vision_controller",
+  "/home/hoshina/test"
 ]
