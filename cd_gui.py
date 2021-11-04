@@ -2,31 +2,46 @@ import PySimpleGUI as sg
 import os 
 from json_read_write import *
 
-config_dirs = []
+dirs = []
 
 def check_dirs():
 
-  global config_dirs
+  global dirs
 
   print("*** check directories *** ")
-  print(" before", config_dirs)
+  print(" before", dirs)
 
-  for i in config_dirs[:]:
-    exist = os.path.exists(i)
+  for i in dirs[:]:
+    
+    if not os.path.exists(i):
+      dirs.remove(i)
 
-    if not exist:
-      config_dirs.remove(i)
-
-  print(" after", config_dirs)
+  print(" after", dirs)
 
 def read_dirs():
 
-  global config_dirs
+  global dirs
 
   f_name = "config.json"
   data = read_json_file(f_name)
-  config_dirs = data["directories"]
-  print("read dirs", config_dirs)
+  dirs = data["directories"]
+  print("read dirs", dirs)
+
+def add_dirs(directory):
+
+  global dirs
+
+  if(os.path.exists(directory)):
+    dirs.append(directory)
+    return True
+  else:
+    return False
+    
+
+
+
+
+
 
 sg.theme('DarkAmber')   # デザインテーマの設定
 
@@ -41,7 +56,7 @@ window = sg.Window('サンプルプログラム', layout)
 read_dirs()
 check_dirs()
 
-direcotry1 = config_dirs[0]
+direcotry1 = dirs[0]
 
 # イベントループ
 while True:
