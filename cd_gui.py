@@ -1,22 +1,28 @@
 import PySimpleGUI as sg
 import os 
+from json_read_write import *
 
 sg.theme('DarkAmber')   # デザインテーマの設定
 
 # ウィンドウに配置するコンポーネント
 layout = [  [sg.Text('ここは1行目')],
             [sg.Text('ここは2行目：適当に文字を入力してください'), sg.InputText()],
-            [sg.Button('OK'), sg.Button('キャンセル')] ]
+            [sg.Button('OK'), sg.Button('Kill all')] ]
 
 # ウィンドウの生成
 window = sg.Window('サンプルプログラム', layout)
+
+f_name = "matrix.json"
+data = read_json_file(f_name)
+
+print(data["matrix"])
 
 # イベントループ
 while True:
 
     print('あなたが入力した値： ', )
     event, values = window.read()
-    if event == 'キャンセル':
+    if event == 'kill all':
         os.system('killall gnome-terminal-server')
         #break
 
