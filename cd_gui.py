@@ -2,7 +2,31 @@ import PySimpleGUI as sg
 import os 
 from json_read_write import *
 
-config_dirs = None
+config_dirs = []
+
+def check_dirs():
+
+  global config_dirs
+
+  print("*** check directories *** ")
+  print(" before", config_dirs)
+
+  for i in config_dirs[:]:
+    exist = os.path.exists(i)
+
+    if not exist:
+      config_dirs.remove(i)
+
+  print(" after", config_dirs)
+
+def read_dirs():
+
+  global config_dirs
+
+  f_name = "config.json"
+  data = read_json_file(f_name)
+  config_dirs = data["directories"]
+  print("read dirs", config_dirs)
 
 sg.theme('DarkAmber')   # デザインテーマの設定
 
@@ -14,23 +38,8 @@ layout = [  [sg.Text('ここは1行目')],
 # ウィンドウの生成
 window = sg.Window('サンプルプログラム', layout)
 
-f_name = "config.json"
-data = read_json_file(f_name)
-
-config_dirs = data["directories"]
-
-print("config directories", config_dirs)
-
-remove_idxs = []
-
-for i in config_dirs[:]:
-  exist = os.path.exists(i)
-  print("EXIST:",os.path.exists(i))
-
-  if not exist:
-    config_dirs.remove(i)
-
-print("checked config directories", config_dirs)
+read_dirs()
+check_dirs()
 
 direcotry1 = config_dirs[0]
 
