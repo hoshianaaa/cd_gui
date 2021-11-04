@@ -65,8 +65,9 @@ def add_dirs(directory):
 
 def buttons():
   list = []
+
   for i in dirs:
-    list.append([sg.Button('Button')])
+    list.append([sg.Button(i)])
 
   return list
 
