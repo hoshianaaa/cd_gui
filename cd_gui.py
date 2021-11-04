@@ -25,13 +25,18 @@ def add_dirs(directory):
 
   global dirs
 
-  if(os.path.exists(directory)):
-    dirs.append(directory)
-    return True
+  d = directory
+  if(os.path.exists(d)):
+    if not (d in dirs):
+      dirs.append(directory)
+      print("[Sucess] add exist directory:",d)
+      return True
+    else:
+      print("[Fail] Already exist directory:",d)
+      return False
   else:
+    print("[Fail] No such a directory:",d)
     return False
-
-
 
 sg.theme('DarkAmber')
 
@@ -55,6 +60,10 @@ while True:
     elif event == 'OK':
         d = direcotry1
         os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
+
+    elif event == 'add':
+        d = values[0]
+        add_dirs(d)
 
     elif event == sg.WIN_CLOSED:
         break
