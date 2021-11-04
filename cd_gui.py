@@ -47,7 +47,7 @@ def add_dirs(directory):
   if(os.path.exists(d)):
     if not (d in dirs):
       dirs.append(directory)
-      print("[Sucess] add exist directory:",d)
+      print("[Sucess] add exist directory:" + d)
       return True
     else:
       printRed("[Failed] Already exist directory: " + d)
@@ -60,7 +60,7 @@ sg.theme('DarkAmber')
 
 layout = [  [sg.Text('ここは1行目')],
             [sg.Text('ここは2行目：適当に文字を入力してください'), sg.InputText()],
-            [sg.Button('OK'), sg.Button('add'), sg.Button('Kill all')] ]
+            [sg.Button('open'), sg.Button('add'), sg.Button('Kill all')] ]
 
 window = sg.Window('サンプルプログラム', layout)
 
@@ -75,7 +75,7 @@ while True:
     if event == 'Kill all':
         os.system('killall gnome-terminal-server')
 
-    elif event == 'OK':
+    elif event == 'open':
         d = direcotry1
         os.system('gnome-terminal -- bash -c "cd %s; bash"' % d)
 
