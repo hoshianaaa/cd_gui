@@ -2,12 +2,14 @@ import PySimpleGUI as sg
 import os 
 from json_read_write import *
 
+config_dirs = None
+
 sg.theme('DarkAmber')   # デザインテーマの設定
 
 # ウィンドウに配置するコンポーネント
 layout = [  [sg.Text('ここは1行目')],
             [sg.Text('ここは2行目：適当に文字を入力してください'), sg.InputText()],
-            [sg.Button('OK'), sg.Button('Kill all')] ]
+            [sg.Button('OK'), sg.Button('add'), sg.Button('Kill all')] ]
 
 # ウィンドウの生成
 window = sg.Window('サンプルプログラム', layout)
@@ -17,7 +19,11 @@ data = read_json_file(f_name)
 
 print(data["directories"])
 
-direcotry1 = data["directories"][0]
+config_dirs = data["directories"]
+
+direcotry1 = config_dirs[0]
+
+print("EXIST:",os.path.exists(direcotry1))
 
 # イベントループ
 while True:
