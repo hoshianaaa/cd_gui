@@ -78,9 +78,9 @@ def buttons():
 def layout():
 
   layout =  [  
-              [sg.Text('Input directory: '), sg.InputText(), sg.Button('add'), sg.Button('clear')],
+              [sg.Frame('Terminal Operation',[[sg.Text('Input directory: '), sg.InputText(), sg.Button('add'), sg.Button('clear')]],border_width=3)],
               buttons(),
-              [sg.Button('Kill all')] 
+              [sg.Frame('Terminal Operation',[[sg.Button('Kill all')]],border_width=10)],
             ]
 
   return layout
