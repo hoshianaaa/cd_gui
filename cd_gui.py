@@ -79,7 +79,7 @@ def layout():
 
   layout =  [  
               [sg.Frame('Directory operation',[[sg.Text('Input directory: '), sg.InputText(), sg.Button('add'), sg.Button('clear')]],border_width=3)],
-              [sg.Frame('Terminal Operation',buttons(),title_location='ne',   background_color='white')],
+              [sg.Frame('directories',buttons(),title_location='ne',   background_color='white')],
               [sg.Frame('Terminal Operation',[[sg.Button('Kill all')]],border_width=10, title_color='yellow')],
             ]
 
