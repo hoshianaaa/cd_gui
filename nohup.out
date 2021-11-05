@@ -39,3 +39,8 @@ directory /home
 kill all
 あなたが入力した値： 
 [31m[Failed] Already exist directory: /home[0m
+# Failed to use specified server: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.238 was not provided by any .service files
+# Falling back to default server.
+# Failed to use specified server: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.238 was not provided by any .service files
+# Falling back to default server.
+[<PySimpleGUI.PySimpleGUI.Text object at 0x7fef12380b50>, <PySimpleGUI.PySimpleGUI.Input object at 0x7fef123aaf70>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fef10f6dc40>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fef10f6dc10>]

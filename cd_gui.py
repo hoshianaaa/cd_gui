@@ -71,7 +71,7 @@ def buttons():
   list = []
 
   for i in dirs:
-    list.append([sg.Button(i)])
+    list.append([sg.Button(i), sg.Checkbox("auto",default=False), sg.Checkbox("start.sh",default=False)])
 
   return list
 
