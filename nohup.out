@@ -44,3 +44,5 @@ kill all
 # Failed to use specified server: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name :1.238 was not provided by any .service files
 # Falling back to default server.
 [<PySimpleGUI.PySimpleGUI.Text object at 0x7fef12380b50>, <PySimpleGUI.PySimpleGUI.Input object at 0x7fef123aaf70>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fef10f6dc40>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fef10f6dc10>]
+[<PySimpleGUI.PySimpleGUI.Text object at 0x7fa7fa1a7cd0>, <PySimpleGUI.PySimpleGUI.Input object at 0x7fa7fa1a7d00>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fa7fa1a7d30>, <PySimpleGUI.PySimpleGUI.Button object at 0x7fa7fa1a7d60>]
+[Sucess] add exist directory:/home/hoshina

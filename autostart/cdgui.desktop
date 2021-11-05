@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+Name=Microsoft Teams - Preview
+Exec=bash /home/hoshina/cd_gui/start.sh
+Icon=teams
+Terminal=false
+StartupNotify=false
+Categories=Network;Application;
+MimeType=x-scheme-handler/msteams;
+X-GNOME-Autostart-enabled=true
+X-KDE-Protocols=teams

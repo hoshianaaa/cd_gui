@@ -95,7 +95,8 @@ sg.theme('DarkAmber')
 #sg.theme("DarkTanBlue")
 
 location = (0,0)
-window = sg.Window('cd gui', layout=layout())
+WINDOW_TITLE = "cd gui"
+window = sg.Window(WINDOW_TITLE, layout=layout())
 
 print([sg.Text('Input directory: '), sg.InputText(), sg.Button('add'), sg.Button('clear')])
 
@@ -119,14 +120,14 @@ try:
           d = values[0]
           add_dirs(d)
 
-          window1 = sg.Window('Window Title', location=location).Layout(layout())
+          window1 = sg.Window(WINDOW_TITLE, location=location).Layout(layout())
           window.Close()
           window = window1
 
       elif event == 'clear':
           clear_dirs()
 
-          window1 = sg.Window('Window Title', location=location).Layout(layout())
+          window1 = sg.Window(WINDOW_TITLE, location=location).Layout(layout())
           window.Close()
           window = window1
 
